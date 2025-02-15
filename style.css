@@ -1,0 +1,177 @@
+/* styles.css */
+
+body {
+    background-color: #FFF5E1;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #5D5C61;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.main-image {
+    width: 200px;
+    margin: 20px 0;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #D72638;
+    color: #FFF5E1;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-volver {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 20px; /* Espaciado superior de 40px, inferior de 20px */
+    padding: 15px 25px;
+    background-color: #D72638;
+    color: #FFF5E1;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #F49AC2;
+}
+
+/* 🔹 Galería de Fotos - Asegura que todas las imágenes aparezcan correctamente */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+/* 🔹 Estilo de las Tarjetas de Fotos */
+.photo-card {
+    background: #E6CBA8;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px; /* Mantiene el tamaño uniforme */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔹 Ajuste de las Imágenes dentro de la Galería */
+.photo-card img {
+    width: 100%;
+    height: auto;
+    max-height: 350px; /* Controla la altura para evitar cortes */
+    object-fit: cover; /* Mantiene la imagen sin deformaciones */
+    border-radius: 8px;
+}
+
+/* 🔹 Tamaño de los videos */
+.video-card iframe {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.poem-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.poem-card {
+    background: #E6CBA8;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.poem-card h2 {
+    color: #5D5C61;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.poem-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #3D3C42;
+}
+
+/* 🔹 Galería de música */
+.music-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* 🔹 Tarjetas de música */
+.music-card {
+    background: #E6CBA8;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔹 Reproductor de audio */
+.music-card audio {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+/* 🔹 Tamaño del reproductor de audio */
+audio {
+    width: 100%;
+}
