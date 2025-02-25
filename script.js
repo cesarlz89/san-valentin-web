@@ -82,7 +82,18 @@ if (document.title === "Videos") {
         });
     });
 }
+document.addEventListener("DOMContentLoaded", function() {
+    let popup = document.getElementById("popup-historia");
+    let closePopup = document.getElementById("close-popup");
 
+    // Verifica si el usuario ya vio el pop-up antes
+    if (!localStorage.getItem("historiaVisto")) {
+        popup.classList.add("show"); // Muestra el pop-up
+    }
 
-
-
+    // Cuando el usuario presiona el botón, oculta el pop-up y guarda en localStorage
+    closePopup.addEventListener("click", function() {
+        popup.classList.remove("show");
+        localStorage.setItem("historiaVisto", "true");
+    });
+});
