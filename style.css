@@ -177,6 +177,10 @@ audio {
 }
 
 .story-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
     position: relative;
     width: 300px; 
     height: auto; 
@@ -186,6 +190,14 @@ audio {
     border: 3px solid #E6CBA8;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     margin: auto;
+}
+
+.story-container img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Ajusta para que no sobrepase la pantalla */
+    object-fit: contain; /* Evita cortes en las imágenes */
+    border-radius: 12px;
 }
 
 .story-track {
@@ -221,6 +233,13 @@ audio {
     padding: 10px;
     font-size: 20px;
     border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .story-container img {
+        max-width: 90%; /* Reduce el tamaño en pantallas pequeñas */
+        max-height: 70vh; /* Evita que ocupen todo el alto */
+    }
 }
 
 #prevStory { left: 10px; }
