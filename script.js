@@ -1,5 +1,3 @@
-// script.js
-
 // 🔹 Agregar efecto de clic a los botones
 document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('click', function() {
@@ -10,25 +8,74 @@ document.querySelectorAll('.btn').forEach(button => {
     });
 });
 
-// 🔹 Reproducir música automáticamente en la página de Música
+// 🔹 Reproducir música automáticamente en la página de Música y pausar la anterior
 if (document.title === "Música") {
     document.addEventListener("DOMContentLoaded", function() {
-        let audio = document.querySelector("audio");
-        if (audio) {
-            audio.play().catch(error => console.log("Autoplay bloqueado por el navegador", error));
+        let audioTracks = document.querySelectorAll("audio");
+
+        audioTracks.forEach(audio => {
+            audio.addEventListener("play", function() {
+                // Pausar otras canciones en reproducción
+                audioTracks.forEach(track => {
+                    if (track !== audio) {
+                        track.pause();
+                    }
+                });
+            });
+        });
+
+        // Autoplay primera canción
+        if (audioTracks.length > 0) {
+            audioTracks[0].play().catch(error => console.log("Autoplay bloqueado por el navegador", error));
         }
     });
+}
 
-    // 🔹 Pausar la música anterior cuando se reproduce una nueva
+// 🔹 Carrusel de Historias Estilo Instagram
+document.addEventListener("DOMContentLoaded", function() {
+    const track = document.querySelector(".story-track");
+    const stories = document.querySelectorAll(".story");
+    const prevButton = document.getElementById("prevStory");
+    const nextButton = document.getElementById("nextStory");
+    
+    let currentIndex = 0;
+
+    if (track && prevButton && nextButton) {
+        nextButton.addEventListener("click", function() {
+            if (currentIndex < stories.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Reinicia al inicio
+            }
+            updateCarousel();
+        });
+
+        prevButton.addEventListener("click", function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = stories.length - 1; // Va a la última historia
+            }
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            const newTransform = -currentIndex * 100 + "%";
+            track.style.transform = "translateX(" + newTransform + ")";
+        }
+    }
+});
+
+// 🔹 Reproductor de video en la sección de Videos (si hay videos locales)
+if (document.title === "Videos") {
     document.addEventListener("DOMContentLoaded", function() {
-        const audios = document.querySelectorAll("audio");
+        let videos = document.querySelectorAll("video");
 
-        audios.forEach(audio => {
-            audio.addEventListener("play", function() {
-                // Pausar todos los audios excepto el que se está reproduciendo
-                audios.forEach(otherAudio => {
-                    if (otherAudio !== audio) {
-                        otherAudio.pause();
+        videos.forEach(video => {
+            video.addEventListener("play", function() {
+                videos.forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
                     }
                 });
             });
